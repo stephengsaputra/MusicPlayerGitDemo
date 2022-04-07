@@ -35,6 +35,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var nextMusicBtn: UIButton!
     @IBOutlet weak var resetFavesBtn: UIButton!
     
+    @objc func updateChangedLyricstoArray() {
+        arrOfMusic[currMusic].lyrics = lyricsTextView.text
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -61,6 +65,9 @@ class ViewController: UIViewController {
         if arrOfMusic[0].isFavorite! {
             favMusicBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
+        
+        // To notify the changeLyrics function when textView value changed
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChangedLyricstoArray), name: UITextView.textDidChangeNotification, object: nil)
         
     }
     
