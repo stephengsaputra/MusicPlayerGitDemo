@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         
         // Check first music fave status
         if arrOfMusic[0].isFavorite! {
-            favMusicBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+             favMusicBtn.setImage(UIImage(systemName: "heart.circle.fill"), for: .normal)
         }
         
         // To blur background (put this on your ViewController's viewDidLoad())
@@ -71,6 +71,7 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 5) {
             blurEffectView.effect = blurEffect
         }
+        
     }
     
     @IBAction func pressNext(_ sender: Any) {
@@ -136,11 +137,10 @@ class ViewController: UIViewController {
     
     func changeHeartIcon() {
         if arrOfMusic[currMusic].isFavorite! {
-            favMusicBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else {
-            favMusicBtn.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
-        
+            favMusicBtn.setImage(UIImage(systemName: "heart.circle.fill"), for: .normal)
+      } else {
+        favMusicBtn.setImage(UIImage(systemName: "heart.circle"), for: .normal)
+      }
     }
 
 }
